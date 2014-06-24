@@ -1,4 +1,3 @@
-require_relative '../../lib/shortlist_image_search'
 require 'spec_helper'
 describe "Search" do
 

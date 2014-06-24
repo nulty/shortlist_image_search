@@ -10,7 +10,7 @@ module ShortlistImageSearch
 
     def load(options={})
       File.open(@path).each do |line|
-        @urls << {line=>0}
+        @urls << line
       end
     end
   end

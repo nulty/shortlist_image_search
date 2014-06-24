@@ -1,4 +1,3 @@
-require_relative '../../lib/shortlist_image_search'
 require 'spec_helper'
 describe ShortlistImageSearch::UrlReader do
 
@@ -16,8 +15,7 @@ describe ShortlistImageSearch::UrlReader do
 
     it "intializes @urls correctly" do
       reader.urls.each do |url|
-        expect(url.keys.first).to match(/http/)
-        expect(url.values.first).to eq 0
+        expect(url).to match(/http/)
       end
     end
   end
