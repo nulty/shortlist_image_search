@@ -3,16 +3,18 @@ require "shortlist_image_search/version"
 module ShortlistImageSearch
   class Google
     require 'net/http'
-    attr_accessor :image, :result
+    attr_accessor :images, :result
 
-    def initialize(image_source)
-      @image = image_source
+    def initialize(images)
+      @images = [*images]
       @result = []
     end
 
     def search
-      url = uri_processing(@image)
-      @result << {@image=>fetch(url)}
+      @images.each do |image|
+        url = uri_processing(image)
+        @result << {image=>fetch(url)}
+      end
     end
 
 private
