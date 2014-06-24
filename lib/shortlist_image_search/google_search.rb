@@ -31,7 +31,7 @@ private
         # warn "redirected to #{location}" uncomment for debugging
         fetch(location, limit - 1)
       when Net::HTTPSuccess then
-        found = response.body.match(/Pages that include matching images/) ? true : false
+        response.body.match(/Pages that include matching images/) ? true : false
       else
         response.body
       end
@@ -39,8 +39,9 @@ private
     end
 
     def uri_processing(uri)
-      query       = CGI.escape(uri)
-      search_path = "http://images.google.com/searchbyimage?image_url=#{query}&image_content=&filename="
+      query = CGI.escape(uri)
+      "http://images.google.com/searchbyimage?image_url=#{query}&image_content=&filename="
     end
+
   end
 end
