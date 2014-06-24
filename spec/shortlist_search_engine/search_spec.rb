@@ -26,11 +26,5 @@ describe "Search" do
         expect(searcher.result).to eq [{url.first=>true},{url.last=>false}]
       end
     end
-
-    it "read the file" do
-      File.open("spec/support/url_list.txt").each do |line|
-        expect(line).to match /http:\/\//
-      end
-    end
   end
 end
